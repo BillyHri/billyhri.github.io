@@ -7,7 +7,7 @@ const CONFIG = {
   /**
    * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
    */
-  base: '/myWebsite/',
+  base: '/',
   projects: {
     github: {
       display: true, // Display GitHub projects?
