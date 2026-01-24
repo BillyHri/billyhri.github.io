@@ -25,6 +25,35 @@
     <meta name="twitter:image" content="<%- metaImageURL %>" />
   </head>
   <body>
+   <body>
+  <script>
+    const MAINTENANCE = true;
+
+    if (MAINTENANCE) {
+      document.body.innerHTML = `
+        <div style="
+          font-family: system-ui, -apple-system, BlinkMacSystemFont;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background: #0f172a;
+          color: white;
+          text-align: center;
+        ">
+          <h1 style="font-size: 2.5rem;">🚧 Under Maintenance</h1>
+          <p style="opacity: 0.8;">We’ll be back shortly.</p>
+        </div>
+      `;
+      throw new Error('Maintenance mode enabled');
+    }
+  </script>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
