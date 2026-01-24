@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,51 +10,42 @@
     <meta property="title" content="<%- metaTitle %>" />
     <meta name="description" content="<%- metaDescription %>" />
 
-    <meta itemprop="name" content="<%- metaTitle %>" />
-    <meta itemprop="description" content="<%- metaDescription %>" />
-    <meta itemprop="image" content="<%- metaImageURL %>" />
-
     <meta property="og:title" content="<%- metaTitle %>" />
     <meta property="og:description" content="<%- metaDescription %>" />
     <meta property="og:image" content="<%- metaImageURL %>" />
-    <meta property="og:image:secure_url" content="<%- metaImageURL %>" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="<%- metaTitle %>" />
-    <meta name="twitter2:description" content="<%- metaDescription %>" />
-    <meta name="twitter:image" content="<%- metaImageURL %>" />
   </head>
+
   <body>
-   <body>
-  <script>
-    const MAINTENANCE = true;
+    <script>
+      const MAINTENANCE = true;
 
-    if (MAINTENANCE) {
-      document.body.innerHTML = `
-        <div style="
-          font-family: system-ui, -apple-system, BlinkMacSystemFont;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          background: #0f172a;
-          color: white;
-          text-align: center;
-        ">
-          <h1 style="font-size: 2.5rem;">🚧 Under Maintenance</h1>
-          <p style="opacity: 0.8;">We’ll be back shortly.</p>
-        </div>
-      `;
-      throw new Error('Maintenance mode enabled');
-    }
-  </script>
+      if (MAINTENANCE) {
+        document.write(`
+          <style>
+            body {
+              margin: 0;
+              font-family: system-ui;
+              display: grid;
+              place-items: center;
+              height: 100vh;
+              background: #0f172a;
+              color: white;
+              text-align: center;
+            }
+          </style>
+          <h1>🚧 Under Maintenance</h1>
+          <p>We’ll be back shortly.</p>
+        `);
+      }
+    </script>
 
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
-
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if (!MAINTENANCE) {
+        document.write(
+          '<div id="root"></div>' +
+          '<script type="module" src="/src/main.tsx"><\\/script>'
+        );
+      }
+    </script>
   </body>
 </html>
